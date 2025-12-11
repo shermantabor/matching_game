@@ -118,7 +118,7 @@ def get_config_file(num_cards: int) -> str:
 
     # get user input
     config = turtle.textinput("Enter a config file: (default: card)",
-                              "Options: card, winston, custom")
+                              "Options: card, winston, hp, custom")
     config_file = f"{config}_config_{num_cards}.txt"
 
     # default to card config if input does not match existing config file

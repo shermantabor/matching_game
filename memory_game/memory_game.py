@@ -7,7 +7,7 @@ Final Project
 main() function to execute game
 '''
 import turtle
-from Game import Game
+from game import Game
 from setup import take_init_input, open_screen
 
 def main():

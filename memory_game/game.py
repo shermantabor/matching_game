@@ -7,8 +7,8 @@ In charge of:
     (4) closing out game
 '''
 import turtle, os, time, random
-from QuitButton import QuitButton
-from Card import Card
+from quit_button import QuitButton
+from card import Card
 from gameplay import (flipped, game_loop, save_score,
                       leaders_sort, write_score, end_game, config_error)
 
