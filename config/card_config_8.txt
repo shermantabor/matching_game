@@ -1,0 +1,4 @@
+jack_of_spades.gif
+king_of_diamonds.gif
+queen_of_hearts.gif
+ace_of_diamonds.gif

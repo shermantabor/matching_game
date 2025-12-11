@@ -1,0 +1,56 @@
+CS 5001
+Fall 2025
+Sherman Tabor
+Final Project
+
+
+Design Doc
+
+
+My memory game project includes (1) a main() function within memory_game.py,
+(2) a Game class and object, (3) a Card class and card objects, (4) a Quit Button class and object,
+(5) a setup.py file with helper functions, and (6) a gameplay.py file with additional helper functions.
+
+
+The game object carries most of the weight. When the user begins, they are prompted to enter
+a user name, configuration, and a number of cards. These inputs are used to build a game object, which implements
+the correct number of card objects, and then stores the user's guesses and matches as they play. The game object
+uses the guesses, matches, and the front image of flipped cards to call helper functions in gameplay.py,
+which determine how the game should proceed.
+
+
+The game object also keeps turtle running until the user has won or quit. Either winning or quitting trigger
+the closeout method on the game object. Winning also first triggers several other methods within the game object
+to save and store the winner's username and score.
+
+
+ADDITIONAL CHOICES:
+(1) User can select the number of cards to play and the configuration file. In order to not frustrate the user
+    if they input something invalid, the program will not prompt for re-entry but will default to the standard
+    card deck and use 8 cards (or the closest of 8, 10, or 12 if the user input an invalid integer).
+
+(2) Leaderboards are unique to configuration and number of cards. Someone playing with 12 cards should not be
+    competing against someone playing with 12, for example. Also, some decks are harder than others (e.g., my
+    'Winston' deck is much harder than the standard card deck). If a configuration has not been played before,
+    the program will automatically write a new leaderboard file.
+
+(3) One known limitation to choice (2) above is that the cards a user plays with are limited by the config file.
+    For example, in the 8 card version of the standard deck, the 8 cards will ALWAYS be the same, because they are
+    pulled from the config file. I chose to do this for the integrity of the leaderboard and the simplicity
+    of having the config file drive much of the game's logic.
+
+
+CUSTOM CONFIGURATION:
+User can customize their card deck. In order to do so, they must first write a configuration file in exactly the
+following format: '{custom_name}_config_{num_cards}.txt'. The custom_name must not contain any spaces.
+The file must contain one line each for the front images of each card: '{image_name}.gif'. The configuration file
+must be placed in the config directory, and there must be a .gif image for each card referenced in the configuration
+file in the images directory. The user will be prompted to choose a configuration. To select their custom configuration,
+they should input whatever they chose for {custom_name} above.
+
+
+KNOWN ISSUE:
+Finally, there is a known error that I am unable to fix. The game object's closeout method throws a memory
+error that I believe has to do with Turtle. I tried to fix it by ensuring that there is only one screen to
+close out, and spent a while reading through documentation to find other solutions, but have not been
+successful. The error reads "alloc: invalid block: 0x1059788c0: c0 5" whenever the game closes out.
